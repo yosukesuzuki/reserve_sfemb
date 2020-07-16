@@ -1,3 +1,4 @@
+import time
 import datetime
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -45,7 +46,8 @@ def scrape_sf() -> bool:
     WebDriverWait(driver, 15).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, "h2"))
     )
-    driver.save_screenshot("{}screenshot.png".format(datetime.datetime.now().strftime("%Y%m%d%H%M%S")))
+    time.sleep(10)
+    driver.save_screenshot("./{}screenshot.png".format(datetime.datetime.now().strftime("%Y%m%d%H%M%S")))
     return True
 
 
